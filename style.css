@@ -1,0 +1,515 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #0d0e10;
+}
+
+
+.scene {
+  --light-x: -500px;
+  --light-y: 50vh;
+  --light-radius: 170px;
+
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 48% 43%,
+      #15171a 0%,
+      #121316 35%,
+      #0f1012 68%,
+      #0b0c0e 100%
+    );
+}
+
+
+.dust-layer {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+.dust-layer::before,
+.dust-layer::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+.dust-layer::before {
+  background:
+
+    radial-gradient(circle, currentColor 0 1px, transparent 1.4px)
+     11% 18% / 4px 4px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.7px, transparent 1.1px)
+     12.4% 19.2% / 3px 3px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.55px, transparent 1px)
+    9.8% 20.4% / 3px 3px no-repeat,
+
+
+    radial-gradient(circle, currentColor 0 0.9px, transparent 1.3px)
+     22% 29% / 4px 4px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.6px, transparent 1px)
+    23.6% 30.3% / 3px 3px no-repeat,
+
+
+    radial-gradient(circle, currentColor 0 1px, transparent 1.5px)
+     6% 14% / 4px 4px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.7px, transparent 1.1px)
+     37.5% 15.3% / 3px 3px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.55px, transparent 1px)
+     34.8% 16.4% / 3px 3px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.5px, transparent 0.9px)
+    38.7% 13.2% / 2px 2px no-repeat,
+
+
+    radial-gradient(circle, currentColor 0 1.1px, transparent 1.6px)
+     55% 23% / 5px 5px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.7px, transparent 1.1px)
+     56.8% 24.4% / 3px 3px no-repeat,
+   
+     radial-gradient(circle, currentColor 0 0.55px, transparent 1px)
+    53.6% 25.4% / 3px 3px no-repeat,
+
+
+    radial-gradient(circle, currentColor 0 0.9px, transparent 1.3px)
+     69% 16% / 4px 4px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.6px, transparent 1px)
+    70.4% 17.3% / 3px 3px no-repeat,
+
+
+    radial-gradient(circle, currentColor 0 1px, transparent 1.5px)
+     82% 25% / 4px 4px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.7px, transparent 1.1px)
+     83.5% 26.5% / 3px 3px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.55px, transparent 1px)
+    80.8% 27.4% / 3px 3px no-repeat,
+
+
+    radial-gradient(circle, currentColor 0 1px, transparent 1.5px)
+     16% 63% / 4px 4px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.7px, transparent 1.1px)
+     17.6% 64.4% / 3px 3px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.55px, transparent 1px)
+    14.8% 65.3% / 3px 3px no-repeat,
+
+
+    radial-gradient(circle, currentColor 0 0.9px, transparent 1.3px)
+     31% 77% / 4px 4px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.6px, transparent 1px)
+    32.5% 78.3% / 3px 3px no-repeat,
+
+
+    radial-gradient(circle, currentColor 0 1px, transparent 1.5px)
+     49% 57% / 4px 4px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.7px, transparent 1.1px)
+     47.8% 58.6% / 3px 3px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.55px, transparent 1px)
+    50.9% 59.2% / 3px 3px no-repeat,
+
+
+    radial-gradient(circle, currentColor 0 1px, transparent 1.5px)
+     65% 72% / 4px 4px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.7px, transparent 1.1px)
+     66.6% 73.4% / 3px 3px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.55px, transparent 1px)
+    63.9% 74% / 3px 3px no-repeat,
+
+
+    radial-gradient(circle, currentColor 0 0.9px, transparent 1.3px)
+     79% 61% / 4px 4px no-repeat,
+
+     radial-gradient(circle, currentColor 0 0.6px, transparent 1px)
+    80.5% 62.3% / 3px 3px no-repeat,
+
+
+    
+    radial-gradient(circle, currentColor 0 0.7px, transparent 1px)
+    8% 42% / 3px 3px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.6px, transparent 1px)
+    20% 10% / 3px 3px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.8px, transparent 1.2px)
+    45% 28% / 4px 4px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.6px, transparent 1px)
+    61% 11% / 3px 3px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.7px, transparent 1.1px)
+    73% 48% / 3px 3px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.6px, transparent 1px)
+    88% 16% / 3px 3px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.8px, transparent 1.2px)
+    91% 72% / 4px 4px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.6px, transparent 1px)
+    44% 86% / 3px 3px no-repeat;
+}
+
+
+
+.dust-layer::after {
+  background:
+
+    radial-gradient(circle, currentColor 0 0.5px, transparent 0.9px)
+    14% 22% / 2px 2px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.5px, transparent 0.9px)
+    27% 34% / 2px 2px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.5px, transparent 0.9px)
+    42% 18% / 2px 2px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.5px, transparent 0.9px)
+    60% 30% / 2px 2px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.5px, transparent 0.9px)
+    75% 22% / 2px 2px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.5px, transparent 0.9px)
+    85% 32% / 2px 2px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.5px, transparent 0.9px)
+    21% 69% / 2px 2px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.5px, transparent 0.9px)
+    36% 81% / 2px 2px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.5px, transparent 0.9px)
+    54% 63% / 2px 2px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.5px, transparent 0.9px)
+    70% 76% / 2px 2px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.5px, transparent 0.9px)
+    84% 66% / 2px 2px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.9px, transparent 1.3px)
+    47% 9% / 4px 4px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.8px, transparent 1.2px)
+    73% 9% / 4px 4px no-repeat,
+
+    radial-gradient(circle, currentColor 0 0.8px, transparent 1.2px)
+    10% 80% / 4px 4px no-repeat;
+}
+
+
+
+
+.dust-dark {
+  color: rgba(255, 255, 255, 0.14);
+  opacity: 0.62;
+}
+
+
+.dust-light {
+  color: rgba(255, 255, 255, 0.88);
+
+  z-index: 1;
+
+  -webkit-mask-image:
+    radial-gradient(
+      circle var(--light-radius)
+      at var(--light-x) var(--light-y),
+
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.92) 35%,
+      rgba(0, 0, 0, 0.58) 62%,
+      rgba(0, 0, 0, 0.18) 82%,
+      transparent 100%
+    );
+
+  mask-image:
+    radial-gradient(
+      circle var(--light-radius)
+      at var(--light-x) var(--light-y),
+
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.92) 35%,
+      rgba(0, 0, 0, 0.58) 62%,
+      rgba(0, 0, 0, 0.18) 82%,
+      transparent 100%
+    );
+}
+
+
+.text-layer {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-weight: 400;
+
+  letter-spacing: 0.08em;
+
+  z-index: 2;
+}
+
+
+.text-dark {
+  color: #191a1c;
+}
+
+
+.text-light {
+  color: #e8e6df;
+
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.08);
+
+  -webkit-mask-image:
+    radial-gradient(
+      circle var(--light-radius)
+      at var(--light-x) var(--light-y),
+
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.96) 28%,
+      rgba(0, 0, 0, 0.72) 52%,
+      rgba(0, 0, 0, 0.28) 74%,
+      transparent 100%
+    );
+
+  mask-image:
+    radial-gradient(
+      circle var(--light-radius)
+      at var(--light-x) var(--light-y),
+
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.96) 28%,
+      rgba(0, 0, 0, 0.72) 52%,
+      rgba(0, 0, 0, 0.28) 74%,
+      transparent 100%
+    );
+}
+
+
+.fragment {
+  position: absolute;
+
+  font-size:
+    clamp(
+      14px,
+      1.6vw,
+      25px
+    );
+
+  line-height: 1.4;
+}
+
+
+.fragment-1 {
+  left: 11%;
+  top: 17%;
+}
+
+
+.fragment-2 {
+  left: 34%;
+  top: 35%;
+
+  font-size:
+    clamp(
+      18px,
+      2.4vw,
+      38px
+    );
+}
+
+
+.fragment-3 {
+  right: 10%;
+  top: 20%;
+
+  text-align: right;
+}
+
+
+.fragment-4 {
+  left: 17%;
+  bottom: 19%;
+}
+
+
+.fragment-5 {
+  right: 18%;
+  bottom: 15%;
+
+  text-align: right;
+}
+
+
+.fragment-6 {
+  left: 53%;
+  top: 70%;
+
+  font-size:
+    clamp(
+      10px,
+      1vw,
+      15px
+    );
+
+  letter-spacing: 0.18em;
+}
+
+
+.light {
+  position: absolute;
+
+  width: 390px;
+  height: 390px;
+
+  left: -200px;
+  top: 50%;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle,
+
+      rgba(255, 255, 255, 0.13) 0%,
+      rgba(255, 255, 255, 0.07) 25%,
+      rgba(255, 255, 255, 0.035) 48%,
+      rgba(255, 255, 255, 0.012) 66%,
+      transparent 76%
+    );
+
+  filter: blur(7px);
+
+  transform:
+    translate(-50%, -50%);
+
+  z-index: 3;
+}
+
+
+.ghost {
+  position: absolute;
+
+  left: -100px;
+  top: 50%;
+
+  width: 82px;
+  height: 82px;
+
+  pointer-events: none;
+
+  transform:
+    translate(-50%, -50%);
+
+  transform-origin: center;
+
+  z-index: 5;
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(255, 255, 255, 0.32)
+    )
+
+    drop-shadow(
+      0 0 22px
+      rgba(255, 255, 255, 0.18)
+    );
+}
+
+
+.ghost svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+.ghost-body {
+  fill: #f2f1ed;
+}
+
+
+.eye {
+  fill: #101010;
+
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+
+.scene::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.025;
+
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+
+      rgba(255, 255, 255, 0.05) 0px,
+      rgba(255, 255, 255, 0.05) 1px,
+
+      transparent 1px,
+      transparent 3px
+    );
+
+  z-index: 10;
+}
